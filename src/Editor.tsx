@@ -18,6 +18,7 @@ import { CodeHighlightNode, CodeNode } from "@lexical/code";
 import { AutoLinkNode, LinkNode } from "@lexical/link";
 import { TRANSFORMERS } from "@lexical/markdown";
 import ToolbarPlugin from "./plugins/ToolbarPlugin";
+import HtmlPlugin from "./plugins/HtmlPlugin";
 
 // import TreeViewPlugin from "./plugins/TreeViewPlugin";
 // import ToolbarPlugin from "./plugins/ToolbarPlugin";
@@ -63,6 +64,10 @@ const Editor = () => {
             contentEditable={<ContentEditable className="editor-input" />}
             placeholder={<Placeholder />}
             ErrorBoundary={LexicalErrorBoundary}
+          />
+          <HtmlPlugin
+            onHtmlChanged={(html) => console.log(html)}
+            initialHtml="<h1>Test</h1><p>Lorem ipsum dolor sit amet</p>"
           />
           <HistoryPlugin />
           <AutoFocusPlugin />
